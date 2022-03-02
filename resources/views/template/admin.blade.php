@@ -66,8 +66,13 @@
                                     class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile
                                 <span class="badge badge-pill badge-danger">1</span></a>
 
-                            <a class="dropdown-item"><i
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
                     </li>
                 </ul>
