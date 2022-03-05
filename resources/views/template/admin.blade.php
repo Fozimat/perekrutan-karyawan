@@ -106,8 +106,10 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Data Diri</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Dokumen Pendukung</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ route('datadiri.index') }}">Data
+                                        Diri</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ route('dokumen.index') }}">Dokumen
+                                        Pendukung</a></li>
                             </ul>
                         </div>
                     </li>
@@ -164,6 +166,7 @@
     <script src="{{ asset('assets-admin/js/settings.js') }}"></script>
     <script src="{{ asset('assets-admin/js/todolist.js') }}"></script>
     <!-- endinject -->
+    <script src="{{ asset('assets-admin/js/file-upload.js') }}"></script>
 </body>
 
 </html>

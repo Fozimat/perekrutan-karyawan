@@ -25,6 +25,9 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
 
 Route::prefix('pelamar')->middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\Pelamar\DashboardController::class, 'index'])->name('pelamar-dashboard');
+    Route::resource('/datadiri', App\Http\Controllers\Pelamar\DataDiriPelamarController::class)->except(['update']);
+    Route::post('/datadiri/{id}', [App\Http\Controllers\Pelamar\DataDiriPelamarController::class, 'update'])->name('datadiri.update');
+    Route::resource('/dokumen', App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class);
 });
 
 Auth::routes();
