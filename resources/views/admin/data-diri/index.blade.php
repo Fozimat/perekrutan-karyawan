@@ -10,51 +10,31 @@ Dashboard Admin
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Hoverable Table</h4>
-                <p class="card-description">
-                    Add class <code>.table-hover</code>
-                </p>
+                <h4 class="card-title">Data Diri Pelamar</h4>
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="dataTable">
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Product</th>
-                                <th>Sale</th>
+                                <th>#</th>
+                                <th>Nama</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Umur</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($datadiri as $data)
                             <tr>
-                                <td>Jacob</td>
-                                <td>Photoshop</td>
-                                <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                                <td><label class="badge badge-danger">Pending</label></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $data->datadiri->nama_lengkap }}</td>
+                                <td>{{ $data->datadiri->jenis_kelamin }}</td>
+                                <td>{{ $data->datadiri->umur }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">detail</a>
+                                    <a href="#" class="btn btn-danger btn-sm">delete</a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Messsy</td>
-                                <td>Flash</td>
-                                <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                                <td><label class="badge badge-warning">In progress</label></td>
-                            </tr>
-                            <tr>
-                                <td>John</td>
-                                <td>Premier</td>
-                                <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                                <td><label class="badge badge-info">Fixed</label></td>
-                            </tr>
-                            <tr>
-                                <td>Peter</td>
-                                <td>After effects</td>
-                                <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                                <td><label class="badge badge-success">Completed</label></td>
-                            </tr>
-                            <tr>
-                                <td>Dave</td>
-                                <td>53275535</td>
-                                <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                                <td><label class="badge badge-warning">In progress</label></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -64,3 +44,10 @@ Dashboard Admin
 
 </div>
 @endsection
+@push('script')
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    } );
+</script>
+@endpush

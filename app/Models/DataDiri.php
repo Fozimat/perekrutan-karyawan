@@ -10,4 +10,9 @@ class DataDiri extends Model
     use HasFactory;
     protected $table = 'data_diri';
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id');
+    }
 }

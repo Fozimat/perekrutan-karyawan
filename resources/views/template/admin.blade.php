@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets-admin/css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets-admin/images/favicon.png') }}" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body>
@@ -59,8 +60,8 @@
                             <div class="dropdown-header text-center">
                                 <img class="img-md rounded-circle"
                                     src="{{ asset('assets-admin/images/faces/face8.jpg') }}" alt="Profile image">
-                                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                                <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->nama }}</p>
+                                <p class="fw-light text-muted mb-0">{{ auth()->user()->email }}</p>
                             </div>
                             <a class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile
@@ -68,7 +69,7 @@
 
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();" class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Logout</a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -129,6 +130,8 @@
     <script src="{{ asset('assets-admin/js/todolist.js') }}"></script>
     <!-- endinject -->
     <script src="{{ asset('assets-admin/js/file-upload.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     @stack('script')
 </body>
 
