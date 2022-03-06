@@ -44,6 +44,7 @@ class DataDiriPelamarController extends Controller
         $datadiri->nama_lengkap = $request->nama_lengkap;
         $datadiri->tempat_lahir = $request->tempat_lahir;
         $datadiri->tanggal_lahir = $request->tanggal_lahir;
+        $datadiri->umur = $request->umur;
         $datadiri->jenis_kelamin = $request->jenis_kelamin;
         $datadiri->alamat = $request->alamat;
         $datadiri->pendidikan_terakhir = $request->pendidikan_terakhir;
@@ -94,6 +95,7 @@ class DataDiriPelamarController extends Controller
         $datadiri->nama_lengkap = $request->nama_lengkap;
         $datadiri->tempat_lahir = $request->tempat_lahir;
         $datadiri->tanggal_lahir = $request->tanggal_lahir;
+        $datadiri->umur = $request->umur;
         $datadiri->jenis_kelamin = $request->jenis_kelamin;
         $datadiri->alamat = $request->alamat;
         $datadiri->pendidikan_terakhir = $request->pendidikan_terakhir;

@@ -73,6 +73,11 @@ Data Diri
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="umur">Umur</label>
+                        <input type="text" class="form-control {{ isset($datadiri->umur) ? 'is-valid' : '' }}" id="umur"
+                            name="umur" readonly value="{{ isset($datadiri->umur) ? $datadiri->umur : '' }}">
+                    </div>
+                    <div class="form-group">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
                         <select
                             class="form-control @error('jenis_kelamin') is-invalid @enderror {{ isset($datadiri->jenis_kelamin) ? 'is-valid' : '' }}"
@@ -228,6 +233,16 @@ Data Diri
             </div>
         </div>
     </div>
-
 </div>
 @endsection
+@push('script')
+<script>
+    $('#tanggal_lahir').on('change', function() {
+            let date = new Date($('#tanggal_lahir').val());
+            let year = date.getFullYear();
+            let nowYear = new Date().getFullYear();
+            let res = nowYear - year;
+            $('#umur').val(res);
+        }); 
+</script>
+@endpush
