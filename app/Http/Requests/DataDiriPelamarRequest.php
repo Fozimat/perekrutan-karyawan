@@ -36,4 +36,20 @@ class DataDiriPelamarRequest extends FormRequest
             'telephone' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nik.required' => 'NIK tidak boleh kosong',
+            'nik.integer' => 'NIK harus angka',
+            'nama_lengkap.required' => 'Nama Lengkap tidak boleh kosong',
+            'tempat_lahir.required' => 'Tempat Lahir tidak boleh kosong',
+            'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
+            'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
+            'alamat.required' => 'Alamat tidak boleh kosong',
+            'pendidikan_terakhir.required' => 'Pendidikan Terakhir tidak boleh kosong',
+            'agama.required' => 'Agana tidak boleh kosong',
+            'telephone.required' => 'Nomor Telephone tidak boleh kosong',
+        ];
+    }
 }

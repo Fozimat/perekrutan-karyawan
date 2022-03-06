@@ -21,14 +21,15 @@ Data Diri
                     Silakan lengkapi form data diri anda
                 </p>
                 <form class="forms-sample"
-                    action="{{ isset($datadiri->id) ?  route('datadiri.update', $datadiri->id) : route('datadiri.store')  }}"
+                    action="{{ isset($datadiri->id) ?  route('datadiri.update', $datadiri->id) : route('datadiri.store') }}"
                     method="POST">
                     @csrf
                     <div class="form-group">
                         <input type="hidden" name="id_user" value="{{ auth()->user()->id }}">
                         <label for="nik">NIK</label>
-                        <input type="text" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik"
-                            value="{{ isset($datadiri->nik) ? $datadiri->nik : '' }}">
+                        <input type="text"
+                            class="form-control @error('nik') is-invalid @enderror {{ isset($datadiri->nik) ? 'is-valid' : '' }}"
+                            id="nik" name="nik" value="{{ old('nik', isset($datadiri->nik) ? $datadiri->nik : '') }}">
                         @error('nik')
                         <span class="invalid-feedback">
                             <strong>{{ $message }}</strong>
@@ -37,22 +38,45 @@ Data Diri
                     </div>
                     <div class="form-group">
                         <label for="nama_lengkap">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
-                            value="{{ isset($datadiri->nama_lengkap) ? $datadiri->nama_lengkap : '' }}">
+                        <input type="text"
+                            class="form-control @error('nama_lengkap') is-invalid @enderror {{ isset($datadiri->nama_lengkap) ? 'is-valid' : '' }}"
+                            id="nama_lengkap" name="nama_lengkap"
+                            value="{{ old('nama_lengkap', isset($datadiri->nama_lengkap) ? $datadiri->nama_lengkap : '') }}">
+                        @error('nama_lengkap')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="tempat_lahir">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir"
+                        <input type="text"
+                            class="form-control @error('tempat_lahir') is-invalid @enderror {{ isset($datadiri->tempat_lahir) ? 'is-valid' : '' }}"
+                            id="tempat_lahir" name="tempat_lahir"
                             value="{{ isset($datadiri->tempat_lahir) ? $datadiri->tempat_lahir : '' }}">
+                        @error('tempat_lahir')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
+                        <input type="date"
+                            class="form-control @error('tanggal_lahir') is-invalid @enderror {{ isset($datadiri->tanggal_lahir) ? 'is-valid' : '' }}"
+                            id="tanggal_lahir" name="tanggal_lahir"
                             value="{{ isset($datadiri->tanggal_lahir) ? $datadiri->tanggal_lahir : '' }}">
+                        @error('tanggal_lahir')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+                        <select
+                            class="form-control @error('jenis_kelamin') is-invalid @enderror {{ isset($datadiri->jenis_kelamin) ? 'is-valid' : '' }}"
+                            id="jenis_kelamin" name="jenis_kelamin">
                             <option value="">--Pilih--</option>
                             <option value="Laki-laki" {{ isset($datadiri->jenis_kelamin) && $datadiri->jenis_kelamin
                                 == "Laki-laki" ? 'selected' :
@@ -63,15 +87,29 @@ Data Diri
                                 ''
                                 }}>Perempuan</option>
                         </select>
+                        @error('jenis_kelamin')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <textarea class="form-control" id="alamat" name="alamat" rows="4">{{ isset($datadiri->alamat) ?
+                        <textarea
+                            class="form-control @error('alamat') is-invalid @enderror {{ isset($datadiri->alamat) ? 'is-valid' : '' }}"
+                            id="alamat" name="alamat" rows="4">{{ isset($datadiri->alamat) ?
                             $datadiri->alamat : '' }}</textarea>
+                        @error('alamat')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="pendidikan_terakhir">Pendidikan Terakhir</label>
-                        <select class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir">
+                        <select
+                            class="form-control @error('pendidikan_terakhir') is-invalid @enderror {{ isset($datadiri->pendidikan_terakhir) ? 'is-valid' : '' }}"
+                            id="pendidikan_terakhir" name="pendidikan_terakhir">
                             <option value="">--Pilih--</option>
                             <option value="SD" {{ isset($datadiri->pendidikan_terakhir) &&
                                 $datadiri->pendidikan_terakhir
@@ -124,10 +162,17 @@ Data Diri
                                 ''
                                 }}>Strata 3</option>
                         </select>
+                        @error('pendidikan_terakhir')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="agama">Agama</label>
-                        <select class="form-control" id="agama" name="agama">
+                        <select
+                            class="form-control @error('agama') is-invalid @enderror {{ isset($datadiri->agama) ? 'is-valid' : '' }}"
+                            id="agama" name="agama">
                             <option value="">--Pilih--</option>
                             <option value="Islam" {{ isset($datadiri->agama) &&
                                 $datadiri->agama
@@ -160,11 +205,23 @@ Data Diri
                                 ''
                                 }}>Khonghucu</option>
                         </select>
+                        @error('agama')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="telephone">Telephone</label>
-                        <input type="text" class="form-control" id="telephone" name="telephone"
+                        <input type="text"
+                            class="form-control @error('telephone') is-invalid @enderror {{ isset($datadiri->telephone) ? 'is-valid' : '' }}"
+                            id="telephone" name="telephone"
                             value="{{ isset($datadiri->telephone) ? $datadiri->telephone : '' }}">
+                        @error('telephone')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Simpan</button>
                 </form>
