@@ -25,7 +25,7 @@ class DataDiriPelamarRequest extends FormRequest
     {
         return [
             'id_user' => 'required',
-            'nik' => 'required|integer',
+            'nik' => 'required|integer|unique:data_diri,nik,' . $this->id,
             'nama_lengkap' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -42,6 +42,7 @@ class DataDiriPelamarRequest extends FormRequest
         return [
             'nik.required' => 'NIK tidak boleh kosong',
             'nik.integer' => 'NIK harus angka',
+            'nik.unique' => 'NIK sudah pernah digunakan',
             'nama_lengkap.required' => 'Nama Lengkap tidak boleh kosong',
             'tempat_lahir.required' => 'Tempat Lahir tidak boleh kosong',
             'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',

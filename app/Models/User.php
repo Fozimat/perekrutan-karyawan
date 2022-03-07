@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(DataDiri::class, 'id_user', 'id');
     }
+
+    public function upload()
+    {
+        return $this->hasOne(Upload::class, 'id_user', 'id');
+    }
 }
