@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin-dashboard');
     Route::get('/pelamar/datadiri', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'index'])->name('pelamar-datadiri');
+    Route::get('/pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'show'])->name('pelamar-datadiri.show');
 });
 
 Route::prefix('pelamar')->middleware('auth')->group(function () {

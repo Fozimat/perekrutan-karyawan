@@ -14,4 +14,10 @@ class DataDiriPelamarController extends Controller
         $datadiri = User::has('datadiri')->where('level', 'PELAMAR')->get();
         return view('admin.data-diri.index', compact(['datadiri']));
     }
+
+    public function show(DataDiri $dataDiri)
+    {
+        $detail = DataDiri::find($dataDiri)->first();
+        return view('admin.data-diri.show', compact(['detail']));
+    }
 }

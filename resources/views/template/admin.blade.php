@@ -21,6 +21,7 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets-admin/images/favicon.png') }}" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    @stack('style')
 </head>
 
 <body>

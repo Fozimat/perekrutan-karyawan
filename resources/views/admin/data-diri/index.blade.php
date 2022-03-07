@@ -30,7 +30,8 @@ Dashboard Admin
                                 <td>{{ $data->datadiri->jenis_kelamin }}</td>
                                 <td>{{ $data->datadiri->umur }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-success btn-sm">detail</a>
+                                    <a href="{{ route('pelamar-datadiri.show', $data->datadiri->id) }}"
+                                        class="btn btn-success btn-sm">detail</a>
                                     <a href="#" class="btn btn-danger btn-sm">delete</a>
                                 </td>
                             </tr>
