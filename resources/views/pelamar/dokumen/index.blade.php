@@ -1,7 +1,7 @@
 @extends('template.admin')
 
 @section('title')
-Data Diri
+Upload Dokumen
 @endsection
 
 @section('content')
@@ -24,6 +24,13 @@ Data Diri
                     action="{{ isset($upload->id) ?  route('dokumen.update', $upload->id) : route('dokumen.store') }}">
                     @csrf
                     <input type="hidden" name="id_user" value="{{ auth()->user()->id }}">
+
+                    <input type="hidden" name="foto_lama" value="{{ $upload->foto }}">
+                    <input type="hidden" name="ktp_lama" value="{{ $upload->ktp }}">
+                    <input type="hidden" name="cv_lama" value="{{ $upload->cv }}">
+                    <input type="hidden" name="ijazah_lama" value="{{ $upload->ijazah }}">
+                    <input type="hidden" name="sim_lama" value="{{ $upload->sim }}">
+
                     <div class="form-group">
                         <label>Foto</label>
                         <input type="file" name="foto" class="file-upload-default">

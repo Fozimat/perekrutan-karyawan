@@ -1,7 +1,7 @@
 @extends('template.admin')
 
 @section('title')
-Dashboard Admin
+Dashboard Pelamar
 @endsection
 
 @section('content')

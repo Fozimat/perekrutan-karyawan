@@ -28,7 +28,8 @@ Route::prefix('pelamar')->middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\Pelamar\DashboardController::class, 'index'])->name('pelamar-dashboard');
     Route::resource('/datadiri', App\Http\Controllers\Pelamar\DataDiriPelamarController::class)->except(['update']);
     Route::post('/datadiri/{id}', [App\Http\Controllers\Pelamar\DataDiriPelamarController::class, 'update'])->name('datadiri.update');
-    Route::resource('/dokumen', App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class);
+    Route::resource('/dokumen', App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class)->except(['update']);
+    Route::post('/dokumen/{id}', [App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class, 'update'])->name('dokumen.update');
 });
 
 Auth::routes();
