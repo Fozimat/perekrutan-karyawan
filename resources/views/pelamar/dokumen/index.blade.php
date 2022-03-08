@@ -17,19 +17,43 @@ Upload Dokumen
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Form Dokumen Pendukung</h4>
-                <p class="card-description">
-                    Silakan lengkapi form dokumen pendukung anda
-                </p>
+                @if (isset($upload))
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-check-circle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                        aria-label="Warning:">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </svg>
+                    <div>
+                        Data Lengkap.
+                    </div>
+                </div>
+                @else
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-info-circle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                        aria-label="Warning:">
+                        <path
+                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+
+                    </svg>
+                    <div>
+                        Silakan lengkapi form dokumen pendukung anda.
+                    </div>
+                </div>
+                @endif
                 <form class="forms-sample" enctype="multipart/form-data" method="POST"
                     action="{{ isset($upload->id) ?  route('dokumen.update', $upload->id) : route('dokumen.store') }}">
                     @csrf
                     <input type="hidden" name="id_user" value="{{ auth()->user()->id }}">
 
-                    <input type="hidden" name="foto_lama" value="{{ $upload->foto }}">
-                    <input type="hidden" name="ktp_lama" value="{{ $upload->ktp }}">
-                    <input type="hidden" name="cv_lama" value="{{ $upload->cv }}">
-                    <input type="hidden" name="ijazah_lama" value="{{ $upload->ijazah }}">
-                    <input type="hidden" name="sim_lama" value="{{ $upload->sim }}">
+                    <input type="hidden" name="foto_lama" value="{{ (isset($upload->foto) ? $upload->foto : '') }} ">
+                    <input type="hidden" name="ktp_lama" value="{{ (isset($upload->ktp) ? $upload->ktp : '') }}">
+                    <input type="hidden" name="cv_lama" value="{{ (isset($upload->cv) ? $upload->cv : '') }}">
+                    <input type="hidden" name="ijazah_lama"
+                        value="{{  (isset($upload->ijazah) ? $upload->ijazah : '')  }}">
+                    <input type="hidden" name="sim_lama" value="{{ (isset($upload->sim) ? $upload->sim : '') }}">
 
                     <div class="form-group">
                         <label>Foto</label>
@@ -48,8 +72,9 @@ Upload Dokumen
                             @enderror
                         </div>
                         @if (isset($upload->id))
-                        <a data-lightbox="photos" href="{{ asset('foto/'.$upload->foto) }}"><img class="img-thumbnail"
-                                style="height: 400px; width: 300px;" src="{{ asset('foto/'.$upload->foto) }}"></a>
+                        <a data-lightbox="photos" data-title="Foto" href="{{ asset('foto/'.$upload->foto) }}"><img
+                                class="img-thumbnail" style="height: 400px; width: 300px;"
+                                src="{{ asset('foto/'.$upload->foto) }}"></a>
                         @endif
                     </div>
                     <div class="form-group">
@@ -69,8 +94,9 @@ Upload Dokumen
                             @enderror
                         </div>
                         @if (isset($upload->id))
-                        <a data-lightbox="photos" href="{{ asset('ktp/'.$upload->ktp) }}"><img class="img-thumbnail"
-                                style="height: 400px; width: 300px;" src="{{ asset('ktp/'.$upload->ktp) }}"></a>
+                        <a data-lightbox="photos" data-title="KTP" href="{{ asset('ktp/'.$upload->ktp) }}"><img
+                                class="img-thumbnail" style="height: 400px; width: 300px;"
+                                src="{{ asset('ktp/'.$upload->ktp) }}"></a>
                         @endif
                     </div>
                     <div class="form-group">
@@ -90,8 +116,9 @@ Upload Dokumen
                             @enderror
                         </div>
                         @if (isset($upload->id))
-                        <a data-lightbox="photos" href="{{ asset('cv/'.$upload->cv) }}"><img class="img-thumbnail"
-                                style="height: 400px; width: 300px;" src="{{ asset('cv/'.$upload->cv) }}"></a>
+                        <a data-lightbox="photos" data-title="CV" href="{{ asset('cv/'.$upload->cv) }}"><img
+                                class="img-thumbnail" style="height: 400px; width: 300px;"
+                                src="{{ asset('cv/'.$upload->cv) }}"></a>
                         @endif
                     </div>
                     <div class="form-group">
@@ -111,7 +138,7 @@ Upload Dokumen
                             @enderror
                         </div>
                         @if (isset($upload->id))
-                        <a data-lightbox="photos" href="{{ asset('ijazah/'.$upload->ijazah) }}"><img
+                        <a data-lightbox="photos" data-title="Ijazah" href="{{ asset('ijazah/'.$upload->ijazah) }}"><img
                                 class="img-thumbnail" style="height: 400px; width: 300px;"
                                 src="{{ asset('ijazah/'.$upload->ijazah) }}"></a>
                         @endif
@@ -133,8 +160,9 @@ Upload Dokumen
                             @enderror
                         </div>
                         @if (isset($upload->id))
-                        <a data-lightbox="photos" href="{{ asset('sim/'.$upload->sim) }}"><img class="img-thumbnail"
-                                style="height: 400px; width: 300px;" src="{{ asset('sim/'.$upload->sim) }}"></a>
+                        <a data-lightbox="photos" data-title="SIM" href="{{ asset('sim/'.$upload->sim) }}"><img
+                                class="img-thumbnail" style="height: 400px; width: 300px;"
+                                src="{{ asset('sim/'.$upload->sim) }}"></a>
                         @endif
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Simpan</button>
