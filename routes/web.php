@@ -22,6 +22,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin-dashboard');
     Route::get('/pelamar/datadiri', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'index'])->name('pelamar-datadiri');
     Route::get('/pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'show'])->name('pelamar-datadiri.show');
+    Route::delete('/pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'destroy'])->name('pelamar-datadiri.destroy');
 });
 
 Route::prefix('pelamar')->middleware('auth')->group(function () {
@@ -29,7 +30,7 @@ Route::prefix('pelamar')->middleware('auth')->group(function () {
     Route::resource('/datadiri', App\Http\Controllers\Pelamar\DataDiriPelamarController::class)->except(['update']);
     Route::post('/datadiri/{id}', [App\Http\Controllers\Pelamar\DataDiriPelamarController::class, 'update'])->name('datadiri.update');
     Route::resource('/dokumen', App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class)->except(['update']);
-    Route::post('/dokumen/{id}', [App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class, 'update'])->name('dokumen.update');
+    Route::post('/dokumen/{dataDiri}', [App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class, 'update'])->name('dokumen.update');
 });
 
 Auth::routes();

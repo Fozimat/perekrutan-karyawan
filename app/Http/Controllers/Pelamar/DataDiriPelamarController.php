@@ -86,8 +86,6 @@ class DataDiriPelamarController extends Controller
      */
     public function update(DataDiriPelamarRequest $request, $id)
     {
-
-
         $datadiri = DataDiri::find($id);
 
         $datadiri->id_user = $request->id_user;

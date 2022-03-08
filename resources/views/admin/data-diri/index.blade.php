@@ -10,7 +10,7 @@ Dashboard Admin
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Data Diri Pelamar</h4>
+                <h4 class="card-title">Data Pelamar</h4>
                 <div class="table-responsive">
                     <table class="table table-hover" id="dataTable">
                         <thead>
@@ -32,7 +32,13 @@ Dashboard Admin
                                 <td>
                                     <a href="{{ route('pelamar-datadiri.show', $data->datadiri->id) }}"
                                         class="btn btn-success btn-sm">detail</a>
-                                    <a href="#" class="btn btn-danger btn-sm">delete</a>
+                                    <form action="{{ route('pelamar-datadiri.destroy', $data->datadiri->id) }}"
+                                        method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Apakah anda yakin?')"
+                                            class="btn btn-danger btn-sm">delete</a>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

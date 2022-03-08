@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\DataDiri;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class DataDiriPelamarController extends Controller
 {
@@ -20,5 +21,11 @@ class DataDiriPelamarController extends Controller
         $detail = DataDiri::with(['user'])->find($dataDiri)->first();
         $user = User::with(['upload'])->where('id', $detail->id_user)->first();
         return view('admin.data-diri.show', compact(['detail', 'user']));
+    }
+
+    public function destroy(DataDiri $dataDiri)
+    {
+        $dataDiri->delete();
+        return redirect()->route('pelamar-datadiri')->with('flash', 'Data berhasil dihapus');
     }
 }
