@@ -15,6 +15,13 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="menu-icon mdi mdi-account-search"></i>
+                <span class="menu-title">Data Lowongan</span>
+            </a>
+        </li>
+
         <li class="nav-item nav-category">Hasil</li>
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
