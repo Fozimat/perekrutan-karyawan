@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('posisi');
             $table->enum('status', ['open', 'closed']);
             $table->string('poster');
+            $table->timestamps();
         });
     }
 

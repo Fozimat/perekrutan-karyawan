@@ -15,8 +15,8 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="#">
+        <li class="nav-item {{ request()->is('admin/lowongan*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('lowongan.index') }}">
                 <i class="menu-icon mdi mdi-account-search"></i>
                 <span class="menu-title">Data Lowongan</span>
             </a>

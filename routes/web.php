@@ -23,6 +23,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/pelamar/datadiri', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'index'])->name('pelamar-datadiri');
     Route::get('/pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'show'])->name('pelamar-datadiri.show');
     Route::delete('/pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'destroy'])->name('pelamar-datadiri.destroy');
+    Route::resource('/lowongan', App\Http\Controllers\Admin\LowonganController::class);
 });
 
 Route::prefix('pelamar')->middleware('auth')->group(function () {

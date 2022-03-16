@@ -1,7 +1,7 @@
 @extends('template.admin')
 
 @section('title')
-Dashboard Admin
+Data Diri Pelamar
 @endsection
 
 @section('content')
