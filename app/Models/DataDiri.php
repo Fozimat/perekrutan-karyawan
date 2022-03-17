@@ -15,4 +15,9 @@ class DataDiri extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public function lowongan()
+    {
+        return $this->hasOne(Lowongan::class, 'id', 'id_lowongan');
+    }
 }

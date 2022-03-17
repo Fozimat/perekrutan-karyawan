@@ -10,4 +10,9 @@ class Lowongan extends Model
     use HasFactory;
     protected $table = 'lowongan';
     protected $guarded = [];
+
+    public function datadiri()
+    {
+        return $this->belongsTo(DataDiri::class, 'id_lowongan', 'id');
+    }
 }

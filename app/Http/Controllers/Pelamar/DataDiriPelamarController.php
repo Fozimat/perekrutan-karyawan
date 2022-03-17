@@ -6,6 +6,7 @@ use App\Models\DataDiri;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DataDiriPelamarRequest;
+use App\Models\Lowongan;
 
 class DataDiriPelamarController extends Controller
 {
@@ -16,8 +17,9 @@ class DataDiriPelamarController extends Controller
      */
     public function index()
     {
-        $datadiri = DataDiri::where('id_user', auth()->user()->id)->first();
-        return view('pelamar.data-diri.index', compact(['datadiri']));
+        $datadiri = DataDiri::with('lowongan')->where('id_user', auth()->user()->id)->first();
+        $lowongan = Lowongan::where('status', 'open')->get();
+        return view('pelamar.data-diri.index', compact(['datadiri', 'lowongan']));
     }
 
     /**
@@ -42,6 +44,7 @@ class DataDiriPelamarController extends Controller
         $datadiri->id_user = $request->id_user;
         $datadiri->nik = $request->nik;
         $datadiri->nama_lengkap = $request->nama_lengkap;
+        $datadiri->id_lowongan = $request->id_lowongan;
         $datadiri->tempat_lahir = $request->tempat_lahir;
         $datadiri->tanggal_lahir = $request->tanggal_lahir;
         $datadiri->umur = $request->umur;
@@ -91,6 +94,7 @@ class DataDiriPelamarController extends Controller
         $datadiri->id_user = $request->id_user;
         $datadiri->nik = $request->nik;
         $datadiri->nama_lengkap = $request->nama_lengkap;
+        $datadiri->id_lowongan = $request->id_lowongan;
         $datadiri->tempat_lahir = $request->tempat_lahir;
         $datadiri->tanggal_lahir = $request->tanggal_lahir;
         $datadiri->umur = $request->umur;

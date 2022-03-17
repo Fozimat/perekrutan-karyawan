@@ -74,6 +74,25 @@ Data Diri
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="id_lowongan">Posisi</label>
+                        <select
+                            class="form-control @error('id_lowongan') is-invalid @enderror {{ isset($datadiri->id_lowongan) ? 'is-valid' : '' }}"
+                            id="id_lowongan" name="id_lowongan">
+                            <option value="">--Pilih--</option>
+                            @foreach ($lowongan as $l)
+                            <option value="{{ $l->id }}" {{ isset($datadiri->lowongan->id) && $datadiri->lowongan->id ==
+                                $l->id
+                                ? 'selected' : '' }}>{{
+                                $l->posisi }}</option>
+                            @endforeach
+                        </select>
+                        @error('id_lowongan')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="tempat_lahir">Tempat Lahir</label>
                         <input type="text"
                             class="form-control @error('tempat_lahir') is-invalid @enderror {{ isset($datadiri->tempat_lahir) ? 'is-valid' : '' }}"
