@@ -18,7 +18,7 @@ Data Diri Pelamar
                                 <th>#</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Umur</th>
+                                <th>Posisi</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -28,7 +28,7 @@ Data Diri Pelamar
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->datadiri->nama_lengkap }}</td>
                                 <td>{{ $data->datadiri->jenis_kelamin }}</td>
-                                <td>{{ $data->datadiri->umur }}</td>
+                                <td>{{ $data->datadiri->lowongan->posisi }}</td>
                                 <td>
                                     <a href="{{ route('pelamar-datadiri.show', $data->datadiri->id) }}"
                                         class="btn btn-success btn-sm">detail</a>

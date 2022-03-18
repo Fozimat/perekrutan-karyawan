@@ -16,10 +16,11 @@ class DataDiriPelamarController extends Controller
         return view('admin.data-diri.index', compact(['datadiri']));
     }
 
-    public function show(DataDiri $dataDiri)
+    public function show($dataDiri)
     {
-        $detail = DataDiri::with(['user'])->find($dataDiri)->first();
-        $user = User::with(['upload'])->where('id', $detail->id_user)->first();
+        $detail = DataDiri::with(['user', 'lowongan'])->find($dataDiri);
+        $user = User::with(['upload'])->where('id', $detail->id_user)->get();
+        // dd($user[0]->upload);
         return view('admin.data-diri.show', compact(['detail', 'user']));
     }
 
