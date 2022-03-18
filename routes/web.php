@@ -21,7 +21,11 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/pelamar/datadiri', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'index'])->name('pelamar-datadiri');
     Route::get('/pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'show'])->name('pelamar-datadiri.show');
     Route::delete('/pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'destroy'])->name('pelamar-datadiri.destroy');
+    Route::post('pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'store_hasil'])->name('store_hasil');
     Route::resource('/lowongan', App\Http\Controllers\Admin\LowonganController::class);
+    Route::get('/hasil', [App\Http\Controllers\Admin\HasilController::class, 'index'])->name('hasil.index');
+    Route::delete('/hasil/{hasil}', [App\Http\Controllers\Admin\HasilController::class, 'destroy'])->name('hasil.destroy');
+    Route::delete('/hasil/{dataDiri}/{id}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'destroy_hasil'])->name('hasil.datadiri.destroy');
 });
 
 Route::prefix('pelamar')->middleware('auth')->group(function () {

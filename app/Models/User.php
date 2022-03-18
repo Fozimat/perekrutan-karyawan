@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Upload::class, 'id_user', 'id');
     }
+
+    public function hasil()
+    {
+        return $this->hasOne(Hasil::class, 'id_user', 'id');
+    }
 }

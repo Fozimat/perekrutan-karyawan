@@ -19,12 +19,54 @@ Detail Data Pelamar
 </div>
 @endif
 
+@if (session('flash'))
+<div class="alert alert-success d-flex align-items-center" role="alert">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+        class="bi bi-check-circle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+        <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+    </svg>
+    <div>
+        {{ session('flash') }}
+    </div>
+</div>
+@endif
+
 
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h3 class="mb-4 text-primary">{{ $detail->lowongan->posisi }}</h3>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="mb-4 text-primary">{{ $detail->lowongan->posisi }}</h3>
+                    @if ($cek_hasil != false)
+                    <form
+                        action="{{ route('hasil.datadiri.destroy', ['id' => $cek_hasil_batal[0]->id, 'dataDiri' => $detail->id]) }}"
+                        method="POST">
+                        @csrf
+                        @method('delete')
+                        <input type="hidden" name="id" value="{{ $cek_hasil_batal[0]->id }}">
+                        <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-icon-text mb-2">
+                            <i class="ti-close btn-icon-prepend"></i>
+                            Batalkan
+                        </button>
+                    </form>
+                    @else
+                    @if (isset($user[0]->upload->foto))
+                    <form action="{{ route('store_hasil', $detail->id) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_user" value="{{ $user[0]->id }}">
+                        <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-icon-text mb-2">
+                            <i class="ti-check btn-icon-prepend"></i>
+                            Lolos Berkas
+                        </button>
+                    </form>
+                    @endif
+                    @endif
+
+
+
+                </div>
                 <div class="template-demo">
                     <h5>
                         <span style="width: 150px!important;display: inline-block;">Nama
