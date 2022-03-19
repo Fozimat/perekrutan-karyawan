@@ -9,41 +9,38 @@ Dashboard Pelamar
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card-body">
-                        <h4 class="card-title">Single color buttons</h4>
-                        <p class="card-description">Add class <code>.btn-{color}</code> for buttons
-                            in theme colors</p>
-                        <div class="template-demo">
-                            <button type="button" class="btn btn-primary">Primary</button>
-                            <button type="button" class="btn btn-secondary">Secondary</button>
-                            <button type="button" class="btn btn-success">Success</button>
-                            <button type="button" class="btn btn-danger">Danger</button>
-                            <button type="button" class="btn btn-warning">Warning</button>
-                            <button type="button" class="btn btn-info">Info</button>
-                            <button type="button" class="btn btn-light">Light</button>
-                            <button type="button" class="btn btn-dark">Dark</button>
-                            <button type="button" class="btn btn-link">Link</button>
+                        <h4 class="card-title">Status Lamaran</h4>
+                        @if (isset($datadiri) && isset($upload))
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-check-circle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                                aria-label="Warning:">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                            </svg>
+                            <div>
+                                Menunggu respon dari perusahaan
+                            </div>
                         </div>
+                        @else
+                        <div class="alert alert-warning d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-info-circle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                                aria-label="Warning:">
+                                <path
+                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+
+                            </svg>
+                            <div class="text-black">
+                                Data belum lengkap. Silahkan lengkapi data diri anda.
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <h4 class="card-title">Rounded buttons</h4>
-                        <p class="card-description">Add class <code>.btn-rounded</code></p>
-                        <div class="template-demo">
-                            <button type="button" class="btn btn-primary btn-rounded btn-fw">Primary</button>
-                            <button type="button" class="btn btn-secondary btn-rounded btn-fw">Secondary</button>
-                            <button type="button" class="btn btn-success btn-rounded btn-fw">Success</button>
-                            <button type="button" class="btn btn-danger btn-rounded btn-fw">Danger</button>
-                            <button type="button" class="btn btn-warning btn-rounded btn-fw">Warning</button>
-                            <button type="button" class="btn btn-info btn-rounded btn-fw">Info</button>
-                            <button type="button" class="btn btn-light btn-rounded btn-fw">Light</button>
-                            <button type="button" class="btn btn-dark btn-rounded btn-fw">Dark</button>
-                            <button type="button" class="btn btn-link btn-rounded btn-fw">Link</button>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
