@@ -4,43 +4,44 @@
 Dashboard Admin
 @endsection
 
+@push('style')
+<link rel="stylesheet" type="text/css"
+    href="{{ asset('assets-frontend/css-dashboard-admin/bootstrap-extended.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets-frontend/css-dashboard-admin/style.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets-frontend/css-dashboard-admin/colors.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets-frontend/css-dashboard-admin/bootstrap.min.css') }}">
+
+@endpush
 @section('content')
 <div class="row">
-    <div class="col-12 grid-margin stretch-card">
+    <div class="col-xl-3 col-sm-6 col-12">
         <div class="card">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <h4 class="card-title">Single color buttons</h4>
-                        <p class="card-description">Add class <code>.btn-{color}</code> for buttons
-                            in theme colors</p>
-                        <div class="template-demo">
-                            <button type="button" class="btn btn-primary">Primary</button>
-                            <button type="button" class="btn btn-secondary">Secondary</button>
-                            <button type="button" class="btn btn-success">Success</button>
-                            <button type="button" class="btn btn-danger">Danger</button>
-                            <button type="button" class="btn btn-warning">Warning</button>
-                            <button type="button" class="btn btn-info">Info</button>
-                            <button type="button" class="btn btn-light">Light</button>
-                            <button type="button" class="btn btn-dark">Dark</button>
-                            <button type="button" class="btn btn-link">Link</button>
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                            <h3 class="danger">{{ $pelamar }}</h3>
+                            <span class="fw-bold">Pelamar</span>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="icon-rocket danger font-large-2 float-right"></i>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <h4 class="card-title">Rounded buttons</h4>
-                        <p class="card-description">Add class <code>.btn-rounded</code></p>
-                        <div class="template-demo">
-                            <button type="button" class="btn btn-primary btn-rounded btn-fw">Primary</button>
-                            <button type="button" class="btn btn-secondary btn-rounded btn-fw">Secondary</button>
-                            <button type="button" class="btn btn-success btn-rounded btn-fw">Success</button>
-                            <button type="button" class="btn btn-danger btn-rounded btn-fw">Danger</button>
-                            <button type="button" class="btn btn-warning btn-rounded btn-fw">Warning</button>
-                            <button type="button" class="btn btn-info btn-rounded btn-fw">Info</button>
-                            <button type="button" class="btn btn-light btn-rounded btn-fw">Light</button>
-                            <button type="button" class="btn btn-dark btn-rounded btn-fw">Dark</button>
-                            <button type="button" class="btn btn-link btn-rounded btn-fw">Link</button>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                            <h3 class="success">{{ $data_lengkap }}</h3>
+                            <span class="fw-bold">Data Lengkap</span>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="icon-user success font-large-2 float-right"></i>
                         </div>
                     </div>
                 </div>
@@ -48,5 +49,39 @@ Dashboard Admin
         </div>
     </div>
 
+    <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                            <h3 class="warning">{{ $data_belum_lengkap }}</h3>
+                            <span class="fw-bold" style="font-size: 13px;">Data Belum Lengkap</span>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                            <h3 class="primary">{{ $lowongan }}</h3>
+                            <span class="fw-bold">Lowongan</span>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="icon-support primary font-large-2 float-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

@@ -19,7 +19,7 @@ Data Diri Pelamar
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Posisi</th>
-                                <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
