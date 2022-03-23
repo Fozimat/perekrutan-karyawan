@@ -5,6 +5,7 @@ Hasil Seleksi
 @endsection
 
 @section('content')
+<a href="{{ route('hasil.print') }}" target="_blank" class="btn btn-primary btn-rounded btn-fw mb-3">Cetak</a>
 
 @if (session('flash'))
 <div class="alert alert-success d-flex align-items-center" role="alert">
