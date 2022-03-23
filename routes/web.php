@@ -35,6 +35,7 @@ Route::prefix('pelamar')->middleware('auth')->group(function () {
     Route::post('/datadiri/{id}', [App\Http\Controllers\Pelamar\DataDiriPelamarController::class, 'update'])->name('datadiri.update');
     Route::resource('/dokumen', App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class)->except(['update']);
     Route::post('/dokumen/{dataDiri}', [App\Http\Controllers\Pelamar\UploadDokumenPelamarController::class, 'update'])->name('dokumen.update');
+    Route::get('hasil/print', [App\Http\Controllers\Pelamar\DashboardController::class, 'print'])->name('pelamar.print');
 });
 
 Auth::routes();
