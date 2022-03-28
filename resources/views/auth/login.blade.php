@@ -37,10 +37,10 @@
 
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img src="{{ asset('assets-admin/images/logo.svg') }}" alt="logo" />
+                                <img style="width: 150px;position: relative;right: 20px;"
+                                    src="{{ asset('assets-admin/images/logo.svg') }}" alt="logo" />
                             </div>
-                            <h4>Hello! let's get started</h4>
-                            <h6 class="fw-light">Sign in to continue.</h6>
+                            <h6 class="fw-light">Silakan login untuk melanjutkan</h6>
                             <form class="pt-3" method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
@@ -66,18 +66,17 @@
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit"
-                                        class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
-                                        IN</button>
+                                        class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOGIN</button>
                                 </div>
                                 @if (Route::has('password.request'))
                                 <div class="my-2 d-flex justify-content-between align-items-center">
-                                    <a href="{{ route('password.request') }}" class="auth-link text-black">Forgot
-                                        password?</a>
+                                    <a href="{{ route('password.request') }}" class="auth-link text-black">Lupa
+                                        Password?</a>
                                 </div>
                                 @endif
                                 <div class="text-center mt-4 fw-light">
-                                    Don't have an account? <a href="{{ route('register') }}"
-                                        class="text-primary">Create</a>
+                                    Belum punya akun? <a href="{{ route('register') }}" class="text-primary">Buat
+                                        baru</a>
                                 </div>
                             </form>
                         </div>

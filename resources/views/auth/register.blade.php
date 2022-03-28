@@ -30,10 +30,10 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img src="{{ asset('assets-admin/images/logo.svg') }}" alt="logo" />
+                                <img style="width: 150px;position: relative;right: 20px;"
+                                    src="{{ asset('assets-admin/images/logo.svg') }}" alt="logo" />
                             </div>
-                            <h4>Hello! let's get started</h4>
-                            <h6 class="fw-light">Sign up to continue.</h6>
+                            <h6 class="fw-light">Silakan login untuk melanjutkan</h6>
                             <form class="pt-3" method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group">
@@ -71,15 +71,14 @@
                                 <div class="form-group">
                                     <input id="password-confirm" type="password" class="form-control form-control-lg"
                                         name="password_confirmation" required autocomplete="new-password"
-                                        placeholder="Confirm Password">
+                                        placeholder="Konfirmasi Password">
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit"
-                                        class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
-                                        UP</button>
+                                        class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">REGISTER</button>
                                 </div>
                                 <div class="text-center mt-4 fw-light">
-                                    Have an account? <a href="{{ route('login') }}" class="text-primary">Login</a>
+                                    Sudah punya akun? <a href="{{ route('login') }}" class="text-primary">Login</a>
                                 </div>
                             </form>
                         </div>

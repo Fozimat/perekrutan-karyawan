@@ -6,6 +6,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
+
         <li class="nav-item nav-category">Data Master</li>
 
         <li class="nav-item  {{ request()->is('admin/pelamar/datadiri*') ? 'active' : '' }}">
@@ -23,19 +24,12 @@
         </li>
 
         <li class="nav-item nav-category">Hasil</li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
-                aria-controls="form-elements">
-                <i class="mdi mdi mdi-trophy-variant menu-icon"></i>
+
+        <li class="nav-item  {{ request()->is('admin/hasil*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('hasil.index') }}">
+                <i class="menu-icon mdi mdi-trophy-variant"></i>
                 <span class="menu-title">Hasil</span>
-                <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('hasil.index') }}">Hasil Seleksi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Laporan</a></li>
-                </ul>
-            </div>
         </li>
 
     </ul>

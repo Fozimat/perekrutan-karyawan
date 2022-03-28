@@ -18,7 +18,7 @@
         <h5>Hasil Seleksi Tahap Dokumen</h4>
     </center>
 
-    <table class='table table-bordered'>
+    <table class='table table-bordered mt-4'>
         <thead>
             <tr>
                 <th>No</th>

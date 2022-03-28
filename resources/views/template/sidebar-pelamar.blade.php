@@ -19,12 +19,5 @@
                 <span class="menu-title">Upload Dokumen</span>
             </a>
         </li>
-        <li class="nav-item nav-category">Hasil</li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="mdi mdi mdi-trophy-variant menu-icon"></i>
-                <span class="menu-title">Hasil Seleksi</span>
-            </a>
-        </li>
     </ul>
 </nav>
