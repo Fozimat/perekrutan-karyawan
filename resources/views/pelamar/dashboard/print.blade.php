@@ -14,7 +14,7 @@
 
     <h4 style="text-align: center;text-decoration: underline;font-weight: bold;margin-bottom: 50px;">Hasil Seleksi Tahap
         Dokumen</h4>
-    <p style="text-align: center;">Yang bertanda tangan dibawah ini, Pimpinan dari PT. ABC menerangkan bahwa:</p>
+    <p style="text-align: center;">Yang bertanda tangan dibawah ini, Pimpinan dari CV JROSA menerangkan bahwa:</p>
     <table style="margin: auto;">
         <tr>
             <td style="width: 150px;">NIK</td>
@@ -55,7 +55,7 @@
             <td style="padding: 25px;"></td>
         </tr>
         <tr>
-            <td>Manajer PT.ABC</td>
+            <td>Manajer CV JROSA</td>
         </tr>
     </table>
 

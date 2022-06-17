@@ -9,10 +9,6 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="{{ asset('assets-frontend/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('assets-frontend/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -80,13 +76,12 @@
                     <div class="col-lg-6 col-md-6 d-flex align-items-stretch px-4" data-aos="zoom-in"
                         data-aos-delay="100">
                         <div
-                            class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            class="row no-gutters border rounded overflow-hidden flex-md-row mb-5 shadow-sm h-md-250 position-relative">
                             <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">{{ $data->posisi }}</strong>
-                                <div class="mb-1 text-muted">Diposting: {{ $data->created_at->isoFormat('D MMMM Y') }}
+                                <strong class="d-inline-block text-primary">{{ $data->posisi }}</strong>
+                                <div class="text-muted">Diposting: {{ $data->created_at->isoFormat('D MMMM Y') }}
                                 </div>
-                                <p class="card-text mb-auto">This is a wider card with supporting text below as a
-                                    natural lead-in to additional content.</p>
+                                <p class="card-text mb-auto"></p>
                                 <a style="border-radius: 50px;" href="{{ route('login') }}"
                                     class="btn btn-primary">Kirim Lamaran</a>
                             </div>
@@ -125,21 +120,21 @@
                                 <div class="info-box">
                                     <i class="bx bx-map"></i>
                                     <h3>Our Address</h3>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>Jalan Adisucipto Bt.10</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-box mt-4">
                                     <i class="bx bx-envelope"></i>
                                     <h3>Email Us</h3>
-                                    <p>info@example.com<br>contact@example.com</p>
+                                    <p>recruitmen@jrosa.com<br>admin@jrosa.com</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-box mt-4">
                                     <i class="bx bx-phone-call"></i>
                                     <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                                    <p>+628 232 332 342<br>+628 565 675 756</p>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +143,7 @@
 
                     <div class="col-lg-6">
                         <iframe class="mb-4 mb-lg-0"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127657.8325778243!2d104.41455673631054!3d0.9170613149076923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d972f6dec85825%3A0xec4ab548c30d02a1!2sTanjungpinang%2C%20Kota%20Tanjung%20Pinang%2C%20Kepulauan%20Riau!5e0!3m2!1sid!2sid!4v1647507615981!5m2!1sid!2sid"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3071371503574!2d104.513332314297!3d0.9171787630693784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d96dae9a8e1edd%3A0xfe90b868b873f496!2sJl.%20Adi%20Sucipto%2C%20Batu%20IX%2C%20Kec.%20Tanjungpinang%20Tim.%2C%20Kota%20Tanjung%20Pinang%2C%20Kepulauan%20Riau!5e0!3m2!1sid!2sid!4v1655473785095!5m2!1sid!2sid"
                             frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen=""></iframe>
                     </div>
 

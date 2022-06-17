@@ -40,8 +40,8 @@ Hasil Seleksi
                             @foreach ($hasil as $data)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $data->user->datadiri->nik }}</td>
                                 <td>{{ $data->user->datadiri->nama_lengkap }}</td>
-                                <td>{{ $data->user->datadiri->jenis_kelamin }}</td>
                                 <td>{{ $data->user->datadiri->lowongan->posisi }}</td>
                                 <td>
 
