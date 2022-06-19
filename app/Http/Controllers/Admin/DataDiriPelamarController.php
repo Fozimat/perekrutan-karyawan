@@ -44,9 +44,11 @@ class DataDiriPelamarController extends Controller
         return redirect()->route('pelamar-datadiri.show', $dataDiri)->with('flash', 'Berhasil dibatalkan');
     }
 
-    public function destroy(DataDiri $dataDiri)
+    public function destroy($id)
     {
-        $dataDiri->delete();
+        $id_user =  DataDiri::where('id', $id)->pluck('id_user')->first();
+        Hasil::where('id_user', $id_user)->delete();
+        DataDiri::findOrFail($id)->delete();
         return redirect()->route('pelamar-datadiri')->with('flash', 'Data berhasil dihapus');
     }
 }
