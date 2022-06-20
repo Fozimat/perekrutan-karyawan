@@ -89,7 +89,7 @@ class LowonganController extends Controller
         if ($request->hasFile('poster')) {
             $path = public_path('poster/' . $lowongan->poster);
             if (File::exists($path)) {
-                unlink($path);
+                File::delete($path);
             }
             $poster_baru = $request->file('poster');
             $nama_poster = time() . '-' . $request->posisi . '.' . $poster_baru->getClientOriginalExtension();
@@ -112,7 +112,7 @@ class LowonganController extends Controller
     {
         $path = public_path('poster/' . $lowongan->poster);
         if (File::exists($path)) {
-            unlink($path);
+            File::delete($path);
         }
         $lowongan->delete();
         return redirect()->route('lowongan.index')->with('flash', 'Data berhasil dihapus');
