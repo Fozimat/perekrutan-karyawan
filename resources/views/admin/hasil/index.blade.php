@@ -34,6 +34,7 @@ Hasil Seleksi
                                 <th>Nama</th>
                                 <th>Posisi</th>
                                 <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,8 +44,8 @@ Hasil Seleksi
                                 <td>{{ $data->user->datadiri->nik }}</td>
                                 <td>{{ $data->user->datadiri->nama_lengkap }}</td>
                                 <td>{{ $data->user->datadiri->lowongan->posisi }}</td>
+                                <td>{{ $data->status == 0 ? 'TIDAK LULUS' : 'LULUS' }}</td>
                                 <td>
-
                                     <form action="{{ route('hasil.destroy', $data->id) }}" method="POST"
                                         class="d-inline">
                                         @csrf

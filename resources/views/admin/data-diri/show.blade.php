@@ -34,38 +34,48 @@ Detail Data Pelamar
 
 
 <div class="row">
+    <div class="d-flex justify-content-end align-items-center p-2">
+        @if ($cek_hasil != false)
+        <form
+            action="{{ route('hasil.datadiri.destroy', ['id' => $cek_hasil_batal[0]->id, 'dataDiri' => $detail->id]) }}"
+            method="POST">
+            @csrf
+            @method('delete')
+            <input type="hidden" name="id" value="{{ $cek_hasil_batal[0]->id }}">
+            <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-icon-text mb-2">
+                <i class="ti-close btn-icon-prepend"></i>
+                Batalkan
+            </button>
+        </form>
+        @else
+        @if (isset($user[0]->upload->foto))
+        <form action="{{ route('store_hasil_gagal', $detail->id) }}" method="POST" style="margin-right:10px;">
+            @csrf
+            <input type="hidden" name="id_user" value="{{ $user[0]->id }}">
+            <input type="hidden" name="status" value="0">
+            <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-icon-text mb-2">
+                <i class="ti-close btn-icon-prepend"></i>
+                Tidak Lolos
+            </button>
+        </form>
+        <form action="{{ route('store_hasil', $detail->id) }}" method="POST">
+            @csrf
+            <input type="hidden" name="id_user" value="{{ $user[0]->id }}">
+            <input type="hidden" name="status" value="1">
+            <button type="submit" class="btn btn-success btn-rounded btn-fw btn-icon-text mb-2">
+                <i class="ti-check btn-icon-prepend"></i>
+                Lolos Berkas
+            </button>
+        </form>
+        @endif
+        @endif
+    </div>
+
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <h3 class="mb-4 text-primary">{{ $detail->lowongan->posisi }}</h3>
-                    @if ($cek_hasil != false)
-                    <form
-                        action="{{ route('hasil.datadiri.destroy', ['id' => $cek_hasil_batal[0]->id, 'dataDiri' => $detail->id]) }}"
-                        method="POST">
-                        @csrf
-                        @method('delete')
-                        <input type="hidden" name="id" value="{{ $cek_hasil_batal[0]->id }}">
-                        <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-icon-text mb-2">
-                            <i class="ti-close btn-icon-prepend"></i>
-                            Batalkan
-                        </button>
-                    </form>
-                    @else
-                    @if (isset($user[0]->upload->foto))
-                    <form action="{{ route('store_hasil', $detail->id) }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="id_user" value="{{ $user[0]->id }}">
-                        <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-icon-text mb-2">
-                            <i class="ti-check btn-icon-prepend"></i>
-                            Lolos Berkas
-                        </button>
-                    </form>
-                    @endif
-                    @endif
-
-
-
                 </div>
                 <div class="template-demo">
                     <h5>

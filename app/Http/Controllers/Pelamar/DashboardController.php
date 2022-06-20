@@ -15,8 +15,10 @@ class DashboardController extends Controller
     {
         $datadiri = DataDiri::with('lowongan')->where('id_user', auth()->user()->id)->first();
         $upload = Upload::where('id_user', auth()->user()->id)->first();
-        $cek_hasil = Hasil::where('id_user', auth()->user()->id)->exists();
-        return view('pelamar.dashboard.index', compact(['datadiri', 'upload', 'cek_hasil']));
+        $cek_data = Hasil::where('id_user', auth()->user()->id)->exists();
+        $cek_hasil_lolos = Hasil::where('id_user', auth()->user()->id)->where('status', 1)->exists();
+        $cek_hasil_gagal = Hasil::where('id_user', auth()->user()->id)->where('status', 0)->exists();
+        return view('pelamar.dashboard.index', compact(['datadiri', 'upload', 'cek_hasil_lolos', 'cek_hasil_gagal', 'cek_data']));
     }
 
     public function print()

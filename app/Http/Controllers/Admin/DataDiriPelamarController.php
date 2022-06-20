@@ -32,7 +32,18 @@ class DataDiriPelamarController extends Controller
     public function store_hasil($dataDiri, Request $request)
     {
         $data = [
-            'id_user' => $request->id_user
+            'id_user' => $request->id_user,
+            'status' => $request->status
+        ];
+        Hasil::create($data);
+        return redirect()->route('pelamar-datadiri.show', $dataDiri)->with('flash', 'Berhasil ditambahkan');
+    }
+
+    public function store_hasil_gagal($dataDiri, Request $request)
+    {
+        $data = [
+            'id_user' => $request->id_user,
+            'status' => $request->status
         ];
         Hasil::create($data);
         return redirect()->route('pelamar-datadiri.show', $dataDiri)->with('flash', 'Berhasil ditambahkan');

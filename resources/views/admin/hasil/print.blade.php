@@ -25,8 +25,8 @@
                 <th>NIK</th>
                 <th>Nama</th>
                 <th>Posisi</th>
-                <th>Alamat</th>
                 <th>Telepon</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -37,8 +37,8 @@
                 <td>{{$p->user->datadiri->nik}}</td>
                 <td>{{$p->user->datadiri->nama_lengkap}}</td>
                 <td>{{ $p->user->datadiri->lowongan->posisi }}</td>
-                <td>{{$p->user->datadiri->alamat}}</td>
                 <td>{{$p->user->datadiri->telephone}}</td>
+                <td>{{$p->status == 0 ? 'TIDAK LULUS' : 'LULUS'}}</td>
             </tr>
             @endforeach
         </tbody>
