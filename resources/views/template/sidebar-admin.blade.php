@@ -25,11 +25,29 @@
 
         <li class="nav-item nav-category">Hasil</li>
 
-        <li class="nav-item  {{ request()->is('admin/hasil*') ? 'active' : '' }}">
+        {{-- <li class="nav-item  {{ request()->is('admin/hasil*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('hasil.index') }}">
                 <i class="menu-icon mdi mdi-trophy-variant"></i>
                 <span class="menu-title">Hasil</span>
             </a>
+        </li> --}}
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                <i class="menu-icon mdi mdi-trophy-variant"></i>
+                <span class="menu-title">Hasil</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('hasil.lulus') }}">Lulus</a></li>
+                </ul>
+            </div>
+            <div class="collapse" id="tables">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('hasil_tidak_lulus') }}">Tidak Lulus</a>
+                    </li>
+                </ul>
+            </div>
         </li>
 
     </ul>

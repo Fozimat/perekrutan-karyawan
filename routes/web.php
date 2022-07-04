@@ -24,7 +24,8 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::post('pelamar/datadiri/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'store_hasil'])->name('store_hasil');
     Route::post('pelamar/datadiri/gagal/{dataDiri}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'store_hasil_gagal'])->name('store_hasil_gagal');
     Route::resource('/lowongan', App\Http\Controllers\Admin\LowonganController::class);
-    Route::get('/hasil', [App\Http\Controllers\Admin\HasilController::class, 'index'])->name('hasil.index');
+    Route::get('/hasil/lulus', [App\Http\Controllers\Admin\HasilController::class, 'hasil_lulus'])->name('hasil.lulus');
+    Route::get('/hasil/tidaklulus', [App\Http\Controllers\Admin\HasilController::class, 'hasil_tidak_lulus'])->name('hasil_tidak_lulus');
     Route::delete('/hasil/{hasil}', [App\Http\Controllers\Admin\HasilController::class, 'destroy'])->name('hasil.destroy');
     Route::delete('/hasil/{dataDiri}/{id}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'destroy_hasil'])->name('hasil.datadiri.destroy');
     Route::get('hasil/print', [App\Http\Controllers\Admin\HasilController::class, 'print'])->name('hasil.print');
