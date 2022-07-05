@@ -28,7 +28,8 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/hasil/tidaklulus', [App\Http\Controllers\Admin\HasilController::class, 'hasil_tidak_lulus'])->name('hasil_tidak_lulus');
     Route::delete('/hasil/{hasil}', [App\Http\Controllers\Admin\HasilController::class, 'destroy'])->name('hasil.destroy');
     Route::delete('/hasil/{dataDiri}/{id}', [App\Http\Controllers\Admin\DataDiriPelamarController::class, 'destroy_hasil'])->name('hasil.datadiri.destroy');
-    Route::get('hasil/print', [App\Http\Controllers\Admin\HasilController::class, 'print'])->name('hasil.print');
+    Route::get('hasil/print_lulus', [App\Http\Controllers\Admin\HasilController::class, 'print_lulus'])->name('hasil.print_lulus');
+    Route::get('hasil/print_tidak_lulus', [App\Http\Controllers\Admin\HasilController::class, 'print_tidak_lulus'])->name('hasil.print_tidak_lulus');
 });
 
 Route::prefix('pelamar')->middleware('auth')->group(function () {

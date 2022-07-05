@@ -31,7 +31,7 @@ Lowongan
                             <tr>
                                 <th>#</th>
                                 <th>Posisi</th>
-                                <th>Status</th>
+                                <th>Batas Lamaran</th>
                                 <th>Poster</th>
                                 <th>Aksi</th>
                             </tr>
@@ -41,7 +41,8 @@ Lowongan
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->posisi}}</td>
-                                <td class="text-uppercase">{{ $data->status }}</td>
+                                <td>{{ $data->batas_lamaran->isoFormat('D MMMM Y') }}
+                                </td>
                                 <td><img style="width: 100px;height: 100px;border-radius: 0;"
                                         src="{{ asset('poster/'.$data->poster) }}">
                                 </td>

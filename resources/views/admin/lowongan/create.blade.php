@@ -32,13 +32,11 @@ Tambah Lowongan
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control @error('status') is-invalid @enderror" id="status" name="status">
-                            <option value="">--Pilih--</option>
-                            <option {{ old('status')=="open" ? "selected" : "" }} value="open">OPEN</option>
-                            <option {{ old('status')=="closed" ? "selected" : "" }} value="closed">CLOSED</option>
-                        </select>
-                        @error('status')
+                        <label for="batas_lamaran">Batas Lamaran</label>
+                        <input type="date" class="form-control @error('batas_lamaran') is-invalid @enderror"
+                            id="batas_lamaran" name="batas_lamaran" value="{{ old('batas_lamaran') }}"
+                            placeholder="batas_lamaran">
+                        @error('batas_lamaran')
                         <span class="invalid-feedback">
                             <strong>{{ $message }}</strong>
                         </span>

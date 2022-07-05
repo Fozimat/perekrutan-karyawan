@@ -26,7 +26,7 @@ class LowonganRequest extends FormRequest
         if (request()->isMethod('put')) {
             return [
                 'posisi' => 'required',
-                'status' => 'required',
+                'batas_lamaran' => 'required',
             ];
             if (request('poster')) {
                 $rules['poster'] = 'required|mimes:jpg,jpeg,png|max:2048';
@@ -34,7 +34,7 @@ class LowonganRequest extends FormRequest
         } else {
             return [
                 'posisi' => 'required',
-                'status' => 'required',
+                'batas_lamaran' => 'required',
                 'poster' => 'required|mimes:jpg,jpeg,png|max:2048'
             ];
         }
@@ -44,8 +44,10 @@ class LowonganRequest extends FormRequest
     {
         return [
             'posisi.required' => 'Posisi tidak boleh kosong',
-            'status.required' => 'Status tidak boleh kosong',
+            'batas_lamaran.required' => 'Batas Lamaran tidak boleh kosong',
             'poster.required' => 'Poster tidak boleh kosong',
+            'poster.mimes' => 'Poster harus jpg,jpeg,png',
+            'poster.max' => 'Ukuran Poster maksimal 2 MB',
         ];
     }
 }

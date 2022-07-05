@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Pelamar;
 
+use Carbon\Carbon;
 use App\Models\DataDiri;
+use App\Models\Lowongan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DataDiriPelamarRequest;
-use App\Models\Lowongan;
 
 class DataDiriPelamarController extends Controller
 {
@@ -18,7 +19,7 @@ class DataDiriPelamarController extends Controller
     public function index()
     {
         $datadiri = DataDiri::with('lowongan')->where('id_user', auth()->user()->id)->first();
-        $lowongan = Lowongan::where('status', 'open')->get();
+        $lowongan = Lowongan::whereDate('batas_lamaran', '>', Carbon::now()->isoFormat('YYYY-MM-DD'))->get();
         return view('pelamar.data-diri.index', compact(['datadiri', 'lowongan']));
     }
 

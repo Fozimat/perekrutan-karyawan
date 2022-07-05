@@ -10,6 +10,7 @@ class Lowongan extends Model
     use HasFactory;
     protected $table = 'lowongan';
     protected $guarded = [];
+    protected $dates = ['batas_lamaran'];
 
     public function datadiri()
     {

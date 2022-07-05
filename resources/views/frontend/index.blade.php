@@ -81,6 +81,8 @@
                                 <strong class="d-inline-block text-primary">{{ $data->posisi }}</strong>
                                 <div class="text-muted">Diposting: {{ $data->created_at->isoFormat('D MMMM Y') }}
                                 </div>
+                                <div class="text-muted">Batas Lamaran: {{ $data->batas_lamaran->isoFormat('D MMMM Y') }}
+                                </div>
                                 <p class="card-text mb-auto"></p>
                                 <a style="border-radius: 50px;" href="{{ route('login') }}"
                                     class="btn btn-primary">Kirim Lamaran</a>

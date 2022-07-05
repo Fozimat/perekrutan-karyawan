@@ -32,4 +32,25 @@ class UploadDokumenPelamarRequest extends FormRequest
             'sim' => 'required|mimes:jpg,jpeg,png|max:2048',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'foto.required' => 'Foto tidak boleh kosong',
+            'ktp.required' => 'KTP tidak boleh kosong',
+            'cv.required' => 'CV tidak boleh kosong',
+            'ijazah.required' => 'Ijazah tidak boleh kosong',
+            'sim.required' => 'SIM tidak boleh kosong',
+            'foto.mimes' => 'Foto harus jpg,jpeg,png',
+            'ktp.mimes' => 'KTP harus jpg,jpeg,png',
+            'cv.mimes' => 'CV harus jpg,jpeg,png',
+            'ijazah.mimes' => 'Ijazah harus jpg,jpeg,png',
+            'sim.mimes' => 'SIM harus jpg,jpeg,png',
+            'ktp.max' => 'Ukuran KTP maksimal 2 MB',
+            'foto.max' => 'Ukuran Foto maksimal 2 MB',
+            'cv.max' => 'Ukuran CV maksimal 2 MB',
+            'ijazah.max' => 'Ukuran Ijazah maksimal 2 MB',
+            'sim.max' => 'Ukuran SIM maksimal 2 MB',
+        ];
+    }
 }

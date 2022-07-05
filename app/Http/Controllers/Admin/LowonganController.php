@@ -44,7 +44,7 @@ class LowonganController extends Controller
         $poster->move(public_path('poster'), $nama_poster);
         $data = [
             'posisi' => $request->posisi,
-            'status' => $request->status,
+            'batas_lamaran' => $request->batas_lamaran,
             'poster' => $nama_poster
         ];
         Lowongan::create($data);
@@ -84,7 +84,7 @@ class LowonganController extends Controller
     {
         $data = [
             'posisi' => $request->posisi,
-            'status' => $request->status,
+            'batas_lamaran' => $request->batas_lamaran,
         ];
         if ($request->hasFile('poster')) {
             $path = public_path('poster/' . $lowongan->poster);
